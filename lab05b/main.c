@@ -24,28 +24,21 @@ int main (){
 	int minusculoParaMaiusculo = 'a' - 'A';
 	int tamP, tamM, i, j, pos, soma, achou, error;
 
-	for( i = 0; i < 140; i++ ){ // Reseta m e p
-		m[i] = '\0';
-		p[i] = '\0';
-	}
-
 	/* Lê p */
-	gets(p);
+	fgets(p, 140, stdin);
 
 	/* Lê m */
-	gets(m);
+	fgets(m, 140, stdin);
 	
 	/* tamanho = -1 para saber se já foi determinado */
 	tamP = -1;
 	tamM = -1;
 	for( i = 0; i < 140 ; i++){
-
-		if(m[i] == '\0' && tamM == -1) // se é um caractere não escrito por cima de \0 e não foi determinado o tamanho
+		if(m[i] == '\n' && tamM == -1) // se é a quebra de linha e não foi determinado o tamanho
 			tamM = i;
 	
-		if(p[i] == '\0' && tamP == -1) // se é um caractere não escrito por cima de \0 e não foi determinado o tamanho
+		if(p[i] == '\n' && tamP == -1) // se é a quebra de linha e não foi determinado o tamanho
 			tamP = i;
-
 	}
 
 	/* Converte toda minúscula em p (p[i] > 'Z') para maiúscula para facilitar */
