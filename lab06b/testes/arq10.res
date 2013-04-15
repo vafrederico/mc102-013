@@ -1,0 +1,33 @@
+Zumbi 1: (1, 10, E)
+Zumbi 2: (1, 9, W)
+Zumbi 3: (1, 84, E)
+Zumbi 4: (1, 80, N)
+Zumbi 5: (1, 13, S)
+Zumbi 6: (1, 5, N)
+Zumbi 7: (1, 20, N)
+Zumbi 8: (1, 90, E)
+Zumbi 9: (1, 44, N)
+Zumbi 10: (1, 85, N)
+Zumbi 11: (1, 93, W)
+Zumbi 12: (1, 76, S)
+Zumbi 13: (1, 90, E)
+Zumbi 14: (1, 33, W)
+Zumbi 15: (1, 9, W)
+Zumbi 16: (1, 61, N)
+Zumbi 17: (1, 70, E)
+Zumbi 18: (1, 56, S)
+Zumbi 19: (1, 73, N)
+Zumbi 20: (1, 44, W)
+Zumbi 21: (1, 2, S)
+Zumbi 22: (1, 85, N)
+Zumbi 23: (1, 44, N)
+Zumbi 24: (1, 67, N)
+Zumbi 25: (1, 8, E)
+Zumbi 26: (1, 88, S)
+Zumbi 27: (1, 59, W)
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX#X##XX####X###XXXX#XXXXX XXXXXX##X  XXXX X#XXX XXXXXXX##X###XXX X#XX#XX##X##XX#X####XX#X#X##XXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+6

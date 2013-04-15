@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0054)https://susy.ic.unicamp.br:9999/mc102qr/06b/enunc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Laboratório 06b</title><style type="text/css"></style></head><body style="background-color: white;">
+    <h3>Instituto de Computação da UNICAMP</h3>
+    <h3>Disciplina MC102QR: Algoritmos e Programação de Computadores</h3>
+    <h3>Laboratório Nº 06b - Mortos de Fome</h3>
+    <h3>Prazo de entrega: 22/04/2013 às 13h59min59s</h3>
+    <h3>Peso: 3</h3>
+    <table cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td><i>Docente:</i></td>
+          <td><i>Zanoni Dias</i></td>
+        </tr>
+        <tr>
+          <td><i>Monitores:</i></td>
+          <td><i>Gustavo Rodrigues Galvão</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Carla Negri Lintzmayer</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Thiago da Silva Arruda</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Gustavo Ciotto Pinton</i></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr><br>
+    Um surto de zumbis tomou conta de aparentemente todo o mundo. Um pequeno
+    grupo de sobreviventes, liderados por Rick Grimes e do qual você faz parte,
+    busca a todo custo um novo lar longe das hordas de zumbis. Cada novo lugar
+    que vocês encontram apresenta novos desafios. A busca por mantimentos é
+    incessante. <br>
+    <br>
+    Os zumbis devoram qualquer coisa viva que eles consigam pegar. Aqueles que
+    são mordidos por eles, quando sobrevivem, se infectam e rapidamente
+    transformam-se em zumbis também. Vocês também gostam de chamá-los de <em>walkers</em>,
+    pois, se eles não sentem cheiro de alguma coisa viva, eles apenas caminham
+    por aí, sem rumo.<br>
+    <br>
+    Rick, convocou você, Daryl e Glenn para, como sempre, sair à procura de
+    mantimentos para o resto do grupo. Ao se depararem com um supermercado que
+    ainda continha muitos itens, vocês resolveram que valia a pena perder um
+    tempo e pensar em alguma estratégia para pegá-los. Porém, é óbvio que o
+    mercado estava cheio de zumbis, então simplesmente entrar pela porta da
+    frente (que estava trancada) não era a melhor ideia.<br>
+    <br>
+    Glenn então descobriu uma escada de saída externa que chega ao segundo andar
+    do supermercado, que é a área onde ficava o escritório do gerente. Vocês
+    subiram até lá, tendo que lidar com 3 ou 4 <span style="font-style: italic;">walkers</span> no caminho, mas agora estavam com uma visão melhor
+    da situação dentro do prédio.<br>
+    <br>
+    Rick percebeu que existe um padrão na forma como os <span style="font-style: italic;">walkers</span> se movimentam. Como eles estão
+    em um lugar fechado e não sentem cheiro de humanos, tudo que eles fazem é
+    andar em linha reta para alguma direção. Rick também notou que alguns zumbis
+    quando trombam em alguma parede ou em alguma prateleira viram para a
+    direita, enquanto os outros viram para a esquerda (provavelmente no primeiro
+    caso eles são destros e no segundo caso são canhotos).<br>
+    <br>
+    Enquanto isso, você não pode deixar de notar que havia um notebook intacto
+    sobre a mesa do gerente. Ao ligá-lo, você ficou muito feliz pela bateria
+    estar carregada mas mais feliz ainda por ver que o gerente do mercado era um
+    bom computeiro: seu sistema operacional era Linux (que obviamente vem com
+    gcc instalado). Sendo assim, você rapidamente pensou em uma forma de ajudar
+    seu grupo computacionalmente.<br>
+    <br>
+    Você pensou em escrever um programa que, sabendo onde existe parede e
+    prateleira no supermercado e sabendo a posição atual, direção e lateralidade
+    de cada um dos <em>walkers</em> que estão lá dentro, descubra, depois de
+    passado certo período de tempo, quais são os pontos nos quais nenhum <em>walker</em>
+    passou. Você também pensou em tratar o mercado como uma matriz, conforme a
+    figura a seguir mostra.<br>
+    <br>
+    <div style="text-align: center;"><img alt="" src="./Laboratório 06b_files/planta.png"><br>
+      <span style="font-style: italic;">Figura 1: Situação do supermercado no
+        instante de tempo <span style="font-family: monospace;">t = 0</span>. <span style="font-family: monospace;">X</span> indica parede ou prateleira,
+        <span style="font-family: monospace;"><br>
+          Z<sub>i</sub></span> é o i-ésimo zumbi,</span><span style="font-style: italic;"> </span><span style="font-style: italic;"><span style="font-family: monospace;">r </span>indica que o </span><span style="font-style: italic;">zumbi é destro (right handed) e l<span style="font-family: monospace;"></span> indica que ele é canhoto <br>
+        (left handed). As setas sobre os zumbis indicam suas direções atuais.</span><span style="font-style: italic;">&nbsp;</span><span style="font-style: italic;"> Em três unidades&nbsp;de<br>
+        tempo, isto é, em <span style="font-family: monospace;">t = 3</span>, <span style="font-family: monospace;">Z<sub>1</sub></span> está na casa <span style="font-family: monospace;">(1,2)</span>, <span style="font-family: monospace;">Z<sub>2</sub></span> está na casa <span style="font-family: monospace;">(4,9)</span> e <span style="font-family: monospace;">Z<sub>3</sub></span> está na casa <span style="font-family: monospace;">(3,3)</span>.</span><span style="font-style: italic;"><br>
+      </span><span style="font-style: italic;">Suas direções em <span style="font-family: monospace;">t = 3</span> são: <span style="font-family: monospace;">Z<sub>1</sub></span> está virado para
+      </span><span style="font-style: italic;">leste, <span style="font-family: monospace;">Z<sub>2</sub></span> para sul e <span style="font-family: monospace;">Z<sub>3</sub></span> para oeste.</span></div>
+    <br>
+    Você deve considerar que um zumbi anda uma posição em uma unidade de tempo.
+    Da mesma forma, girar para a direita ou para a esquerda é uma ação que leva
+    uma unidade de tempo para ser feita (zumbis são lerdos).<br>
+    <br>
+    <br>
+    <b>Entrada</b>
+    <ul>
+      <li>Seu programa deve ler várias linhas.</li>
+      <li>A primeira fornece dois números inteiros <span style="font-family: monospace;">N </span>e<span style="font-family: monospace;"> M</span><span style="font-family: monospace;"></span>, <span style="font-family: monospace;">2 &lt; N, M &lt; 100</span>, <span style="font-family: monospace;"></span> que indicam, respectivamente, a
+        profundidade (quantidade de linhas da matriz) e a largura (quantidade de
+        colunas) do supermercado.</li>
+      <li>As próximas <span style="font-family: monospace;">N</span> linhas
+        descrevem o estado do supermercado (paredes e prateleiras):</li>
+      <ul>
+        <li>Cada linha contém <span style="font-family: monospace;">M</span>
+          caracteres não separados por espaço, que podem ser:</li>
+        <ul>
+          <li><span style="font-family: monospace;">"X",</span> indicando que
+            naquela posição existe parede ou prateleira. Note que o supermercado
+            está completamente fechado, por isso a primeira e última linhas, bem
+            como a primeira e última colunas, são preenchidas com <span style="font-family: monospace;">X</span> sempre.</li>
+          <li><span style="font-family: monospace;">" "</span> (espaço em
+            branco), indicando que naquela posição não existe parede nem
+            prateleira (zumbis podem passar por ali).</li>
+        </ul>
+      </ul>
+      <li>A próxima linha fornece um inteiro <span style="font-family: monospace;">T</span>, <span style="font-family: monospace;">2 &lt; T
+          &lt; 100</span>, que indica o total de zumbis existentes no
+        supermercado.</li>
+      <li>As próximas <span style="font-family: monospace;">T</span> linhas
+        descrevem o estado de cada zumbi:</li>
+      <ul>
+        <li>Cada linha contém dois caracteres <span style="font-family: monospace;">L</span> e <span style="font-family: monospace;">D</span>
+          e dois inteiros <span style="font-family: monospace;">x</span> e <span style="font-family: monospace;">y</span>, <span style="font-family: monospace;">0 &lt; x &lt; M-1</span> e <span style="font-family: monospace;">0 &lt; y &lt; N-1</span>, onde:</li>
+        <ul>
+          <li><span style="font-family: monospace;">L</span> indica a
+            lateralidade do zumbi e pode ter dois valores diferentes: <span style="font-family: monospace;">R</span> se o zumbi for destro (<em>right
+              handed</em>) e <span style="font-family: monospace;">L</span> se
+            o zumbi for canhoto (<em>left handed</em>).</li>
+          <li><span style="font-family: monospace;">D</span> indica a direção
+            atual do zumbi e pode ter quatro valores diferentes: <span style="font-family: monospace;">N</span> (north), <span style="font-family: monospace;">S</span> (south), <span style="font-family: monospace;">E</span> (east) ou <span style="font-family: monospace;">W</span> (west).</li>
+          <li><span style="font-family: monospace;">(x, y</span><span style="font-family: monospace;">)</span> é a coordenada de onde o
+            zumbi está.</li>
+          <li>Um zumbi nunca está na mesma posição que uma prateleira ou uma
+            parede.</li>
+          <li>Uma posição do supermercado é suficientemente grande para que
+            muitos zumbis possam estar nela ao mesmo tempo.</li>
+        </ul>
+      </ul>
+      <li>A próxima linha fornece, enfim, um inteiro <span style="font-family: monospace;">I</span>, <span style="font-family: monospace;">I &gt; 0</span>,
+        que indica o instante de tempo para o qual seu algoritmo deve fornecer o
+        estado do supermercado.</li>
+    </ul>
+    <br>
+    <ul>
+    </ul>
+    <b>Saída</b>
+    <ul>
+      <li>Seu programa deve escrever várias linhas na saída padrão.</li>
+      <li>Primeiro você deve imprimir <span style="font-family: monospace;">T</span>
+        linhas indicando o estado de cada zumbi no instante de tempo <span style="font-family: monospace;">I</span>.</li>
+      <ul>
+        <li>Cada linha deve estar no formato "<span style="font-family: monospace;">Z</span><span style="font-family: monospace;">u</span><span style="font-family: monospace;">mbi i: (x, y, D)</span>", indicando
+          que o <span style="font-family: monospace;">i</span>-ésimo zumbi está
+          na posição de coordenadas <span style="font-family: monospace;">(x,
+            y)</span> e está apontando para a direção <span style="font-family: monospace;">D</span>, que pode ser <span style="font-family: monospace;">N</span> (north), <span style="font-family: monospace;">S</span>
+          (south), <span style="font-family: monospace;">E</span> (east) ou <span style="font-family: monospace;">W</span> (west). Note que <span style="font-family: monospace;">0 &lt; x &lt; M-1</span> e <span style="font-family: monospace;">0 &lt; y &lt; N</span>-<span style="font-family: monospace;">1</span>.</li>
+      </ul>
+      <li>Imprima uma linha em branco.</li>
+      <li>Em seguida, você deve imprimir uma matriz <span style="font-family: monospace;">N</span> por <span style="font-family: monospace;">M</span>
+        que indica em quais partes do supermercado um zumbi nunca passou:</li>
+      <ul>
+        <li>Imprima o caractere <span style="font-family: monospace;">"X"</span>
+          onde houver prateleira ou parede.</li>
+        <li>Imprima o caractere <span style="font-family: monospace;">"#"</span>
+          onde um walker já passou.</li>
+        <li>Imprima o caractere <span style="font-family: monospace;">" "</span>
+          (espaço) onde um walker nunca passou.</li>
+        <li><strong>Não</strong> separe os caracteres de uma mesma linha com
+          espaços.</li>
+      </ul>
+  <li>Imprima uma linha em branco.<br>
+  </li>
+
+      <li>Por fim, você deve imprimir uma linha contendo a quantidade de
+        posições do supermercado nas quais nenhum zumbi passou até aquele
+        instante de tempo.</li>
+      <ul>
+      </ul>
+    </ul>
+    <p><span style="font-weight: bold;"><br>
+      </span></p>
+    <p><span style="font-weight: bold;">Exemplos</span></p>
+    <table border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;">#</td>
+          <td style="vertical-align: top;"><em>Entrada</em></td>
+          <td style="vertical-align: top;"><em>Saída</em></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">1</td>
+          <td style="vertical-align: top;"><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;">6 11<br>
+            </span><span style="font-family: monospace;"><span style="font-family: monospace;">XXXXXXXXXXX<br>
+                X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X<br>
+                X XXX&nbsp;&nbsp; X X<br>
+                X&nbsp; &nbsp; &nbsp;&nbsp; X X<br>
+                X&nbsp;&nbsp; XXX&nbsp;&nbsp; X<br>
+                XXXXXXXXXXX<br>
+              </span>3<br>R W 1 1<br>L S 1 9<br>L E 4 3<br>
+              3<br>
+            </span></td>
+          <td style="vertical-align: top;"><span style="font-family: monospace;">Zumbi
+
+
+
+              1: (1, 2, E)<br>
+              Zumbi 2: (4, 9, S)<br>
+              Zumbi 3: (3, 3, W)<br>
+              <br>
+              XXXXXXXXXXX<br>
+              X##&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #X<br>
+              X XXX&nbsp;&nbsp; X#X<br>
+              X&nbsp; # &nbsp;&nbsp; X#X<br>
+              X&nbsp; #XXX&nbsp; #X<br>
+              XXXXXXXXXXX<br>
+<br>
+              20<br>
+            </span></td>
+        </tr><tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-family: monospace;">6 11<br>
+            </span><span style="font-family: monospace;"><span style="font-family: monospace;">XXXXXXXXXXX<br>
+                X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X<br>
+                X XXX&nbsp;&nbsp; X X<br>
+                X&nbsp; &nbsp; &nbsp;&nbsp; X X<br>
+                X&nbsp;&nbsp; XXX&nbsp;&nbsp; X<br>
+                XXXXXXXXXXX<br>
+              </span>3<br>R W 1 1<br>L S 1 9<br>L E 4 3<br>1000<br>
+
+              </span></td>
+      <td style="vertical-align: top;"><span style="font-family: monospace;">Zumbi 1: (2, 7, N)</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">Zumbi 2: (3, 1, S)</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">Zumbi 3: (4, 3, E)</span><br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;">XXXXXXXXXXX</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">X#########X</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">X#XXX&nbsp; #X#X</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">X###&nbsp;&nbsp; #X#X</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">X###XXX###X</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;">XXXXXXXXXXX<br>
+      <br style="font-family: monospace;">
+</span>
+      <span style="font-family: monospace;">5</span><br>
+      </td>
+    </tr>
+
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <hr><small><i>08/04/2013</i></small>
+  
+
+</body></html>
