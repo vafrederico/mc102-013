@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0054)https://susy.ic.unicamp.br:9999/mc102qr/05b/enunc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css"></style></head><body>
+  <div style="background-color:white">
+    <h3>Instituto de Computação da UNICAMP</h3>
+    <h3>Disciplina MC102QR: Algoritmos e Programação de Computadores</h3>
+    <h3>Laboratório Nº 05b - Criptografia de César</h3>
+    <h3>Prazo de entrega: 15/04/2013 às 13h59min59s</h3>
+    <h3>Peso: 3</h3>
+    <table cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td><i>Docente:</i></td>
+          <td><i>Zanoni Dias</i></td>
+        </tr>
+        <tr>
+          <td><i>Monitores:</i></td>
+          <td><i>Gustavo Rodrigues Galvão</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Carla Negri Lintzmayer</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Thiago da Silva Arruda</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Gustavo Ciotto Pinton</i></td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+
+<p></p>
+
+<p align="justify">
+Los Angeles, o plano de ataque de um  grupo terrorista foi identificado pela Unidade Contra Terrorista (UCT). O agente Jack Bauer, o mais experiente da unidade, foi enviado para o aeroporto da cidade, onde se sabia que o comandante do grupo terrorista iria desembarcar.
+</p>
+<p align="justify">
+Após chegar ao aeroporto e identificar o comandante, Jack Bauer passou a observá-lo discretamente. Jack percebeu que o comandante estava enviando mensagens SMS para outros membros do grupo e comunicou este fato a Cloe O'Brian, analista sênior da UCT.
+</p>
+
+<p align="justify">
+Cloe conseguiu interceptar uma mensagem enviada e logo constatou que as letras da mensagem estavam criptografadas, enquanto os números, espaços e damais símbolos não estavam criptografados. Após analisar a mensagem, Cloe passou a suspeitar que o método de criptografia utilizado era Criptografia de César.
+</p>
+<p align="justify">
+Criptografia de César consiste em substituir cada letra <tt>c</tt> do alfabeto pela letra que aparece <tt>k</tt> posições a frente no alfabeto, considerando que o alfabeto é circular, ou seja, após a letra 'z' está a letra 'a'. Por exemplo, para <tt>k = 3</tt>, a letra 'a' seria substituída por 'd', 'd' por 'g', 'z' por 'c', 'A' por 'D' e 'X' por 'A'. Note que, após a criptografia ser aplicada, letras minúsculas permanecem minúsculas e letras maiúsculas permanecem maiúsculas.
+</p>
+
+<p align="justify">
+Jack conseguiu identificar uma palavra da mensagem digitada pelo comandante, contudo ele não conseguiu identificar quais letras estão em maiúsculo e quais letras estão em minúsculo. Ele enviou a palavra identificada para Cloe, com todas as letras em minúsculo.
+</p>
+
+<p align="justify">
+Cloe então delegou a você, o mais novo analista da UCT, a tarefa de fazer um programa que, dado a mensagem criptografada e a palavra identificada, imprima todas as mensagens que podem ser descriptografadas usando o método de Criptografia de César, caso isto seja possível (Jack Bauer pode  não ter identificado corretamente a palavra ou pode ter sido utilizado outro método para criptografar a mensagem).
+</p>
+
+<b>Entrada</b>
+
+<ul>
+	<li>	
+A entrada contém duas linhas. A primeira linha contém uma sequência de caracteres <tt>P</tt>,
+a segunda linha contém uma sequência de caracteres <tt>M, 1 ≤ |P| ≤ |M| ≤ 140</tt>:
+	<ul>
+		<li>
+      <tt>P</tt> representa a palavra identificada por Jack Bauer, e ela contém somente letras minúsculas.
+		</li>
+		<li>
+		  <tt>M</tt> representa a mensagem criptografada interceptada, e ela pode conter letras (maiúsculas e minúsculas), espaços em branco, números e demais símbolos de pontuação. 
+    </li>
+  </ul>
+  </li><li>
+	A entrada deve ser lida da entrada padrão.
+	</li>
+</ul>
+<br>
+<b>Saída</b>
+<ul>
+<li>
+A saída do seu programa deve conter:
+	<ul>
+		<li>
+			Todas as mensagens que podem ser descriptografadas a partir de <tt>M</tt>, caso seja possível descriptografar a mensagem pelo método de Criptografia de César utilizando P como referência.
+		</li><li>
+			<tt>ERROR</tt>, caso não seja possível descriptografar a mensagem. 
+		</li>
+	</ul>
+</li>
+<li>
+<b>Importante:</b> Note que Cloe constatou que somente letras estão criptografadas na mensagem.
+</li>
+<li>
+A saída deve ser escrita na saída padrão.
+</li>
+</ul>
+
+<b>Exemplos</b><br><br>
+<table cellpadding="2" cellspacing="2" border="1">
+<tbody><tr align="center"><td width="15px">#</td><td width="500px"><i>Entrada</i></td><td width="500px"><i>Saída</i></td></tr>
+	<tr>
+		<td>
+			1
+		</td>
+		<td>
+		<tt>
+  right<br>
+  Bj mfaj 3 gtrgx, wnlmy?<br>
+</tt>
+		</td>
+		<td>
+		<tt>We have 3 bombs, right?</tt>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
+		<tt>
+  shake <br>
+ Zqd xnt ftxr vzsbghmf Gzqkdl Rgzjd zfzhm?<br>
+  </tt>
+		</td>
+		<td>
+		<tt>Are you guys watching Harlem Shake again?</tt>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
+		<tt>
+  son<br>
+  Qb lbh unir nal fhatynffrf? Vg'f zl svefg gvzr va Ybf Natryrf.<br>
+  </tt>
+		</td>
+		<td>
+		<tt>ERROR</tt>
+		</td>
+	</tr>
+		<tr>
+		<td>
+			4
+		</td>
+		<td>
+		<tt>
+  secret <br>
+ i hAvE nO sECreTs fOr yOU.<br>
+  </tt>
+		</td>
+		<td>
+		<tt>i hAvE nO sECreTs fOr yOU.</tt>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			5
+		</td>
+		<td>
+		<tt>
+        ate<br>
+       Y qju q iqdtmysx myjx rkvvqbe sxuuiu, Y vekdt jxu unyj ev jxyi xqbb.<br>
+  </tt>
+		</td>
+		<td>
+		<tt>
+		  I ate a sandwich with buffalo cheese, I found the exit of this hall.<br>
+      H zsd z rzmcvhbg vhsg ateezkn bgddrd, H entmc sgd dwhs ne sghr gzkk.<br>
+      E wpa w owjzseyd sepd xqbbwhk ydaaoa, E bkqjz pda atep kb pdeo dwhh.<br>
+      B tmx t ltgwpbva pbma unyyteh vaxxlx, B yhngw max xqbm hy mabl atee.
+    </tt>
+		</td>
+	</tr>
+	
+</tbody></table>
+<br>
+<hr><small><i>31/03/2013</i></small>
+
+</div>
+
+</body></html>

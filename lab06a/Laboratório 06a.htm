@@ -1,0 +1,118 @@
+
+<!-- saved from url=(0054)https://susy.ic.unicamp.br:9999/mc102qr/06a/enunc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Laboratório 06a</title><style type="text/css"></style></head>
+
+<body style="background-color:white;text:black;">
+
+<h3>Instituto de Computação da UNICAMP</h3>
+
+<h3>Disciplina MC102QR: Algoritmos e Programação de Computadores</h3>
+
+<h3>Laboratório Nº 06a - Validando projetos de irrigação</h3>
+
+<h3>Prazo de entrega: 16/04/2013 às 23h59min59s</h3>
+
+<h3>Peso: 3</h3>
+
+<table cellpadding="2" cellspacing="2">
+<tbody><tr><td><i>Docente:</i></td><td><i>Zanoni Dias</i></td></tr>
+<tr><td><i>Monitores:</i></td><td><i>Gustavo Rodrigues Galvão</i></td></tr>
+<tr><td></td><td><i>Carla Negri Lintzmayer</i></td></tr>
+<tr><td></td><td><i>Thiago da Silva Arruda</i></td></tr>
+<tr><td></td><td><i>Gustavo Ciotto Pinton</i></td></tr>
+</tbody></table>
+
+<hr>
+
+<p></p>
+
+<p align="justify">
+Missoshiro Shoyu, também chamado de seu Missô, é um grande plantador de soja do Centro-Oeste brasileiro. De tempos em tempos, seu Missô troca os sistemas de irrigação de suas plantações a fim de reduzir custos, seja porque irrigadores mais novos gastam menos energia ou porque conseguem cobrir uma área maior a um menor custo. Como o seu Missô não possui mão-de-obra para realizar esse serviço, ele o terceiriza para empresas especializadas.   
+</p>
+
+<p align="justify">
+Neste ano, seu Missô deseja mudar os sistemas de irrigação de suas plantações. Para isso, ele resolveu realizar um processo de seleção diferente para escolher a empresa responsável pelo serviço a fim de evitar problemas ocorridos no passado. Ao invés de escolher a empresa baseando-se apenas no orçamento da implantação e da  manutenção dos sistemas de irrigação, ele resolveu basear-se também no projeto de irrigação fornecido pelas empresas. Tal projeto consiste-se da especificação de todos os irrigadores que serão utilizados e do local onde eles serão posicionados. Com o projeto de irrigação em mãos, torna-se possível determinar se os sistemas de irrigação propostos por uma empresa são de fato efetivos, isto é, se irrigam as plantações completamente e da maneira correta.
+</p>
+
+<p align="justify">
+Apesar de evitar os problemas ocorridos no passado, o novo processo de seleção incorre em um novo problema, que reside na grande dificuldade de se determinar manualmente a efetividade de um projeto de irrigação. Sabendo que o terreno relativo a uma plantação pode ser dividido em lotes quadrados e que cada irrigador possui uma área alcance, que é igual a quantidade de lotes irrigados pelo irrigador e corresponde a um quadrado centrado no lote em que o irrigador está posicionado (vide Figura 1), um projeto de irrigação é considerado efetivo se sua implantação não implica a existência de:
+</p><ul>
+	<li>lotes subirrigados, ou seja, lotes que não são irrigados por nenhum irrigador;</li>
+  <li>lotes superirrigados, ou seja, lotes que são irrigados por mais de um irrigador.</li> 
+</ul>    
+<p></p>
+
+<p align="justify">
+A fim de superar esse novo problema, seu Missô contratou você para escrever um programa em C que determina se um projeto de irrigação é efetivo ou não.
+</p>
+
+<br>
+
+<table align="center" style="text-align: center;">
+	<tbody><tr>
+		<td style="width: 200px;"><img src="./Laboratório 06a_files/irrigador1.png"></td>
+    <td style="width: 200px;"><img src="./Laboratório 06a_files/irrigador2.png"></td>
+    <td style="width: 200px;"><img src="./Laboratório 06a_files/irrigador3.png"></td>
+  </tr>
+  <tr>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a)</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c)</td>
+  </tr>
+  <tr>
+		<td colspan="3" style="width: 600px; text-align: left;"><i>Figura 1. As figuras acima ilustram três terrenos de 25 lotes cada. Em cada um deles, existe um irrigador posicionado no lote <tt>(3, 3)</tt>. A área de alcance dos irrigadores corresponde à area pintada de azul, ou seja, a área de alcance dos irrigadores relativos às figuras (a), (b) e (c) é 1, 9 e 25 respectivamente.</i></td>
+	</tr>
+</tbody></table>
+
+<b>Entrada</b>
+<ul>
+	<li> O programa deverá ler um número variável de linhas.</li>
+	<li> A primeira linha é composta por dois números inteiros positivos <tt>N</tt> e <tt>M</tt> tais que:
+		<ul>
+			<li><tt>N</tt> é igual a altura, em termos do número de lotes, do terreno relativo à plantação, <tt>1 ≤ N ≤ 100</tt>;</li>
+      <li><tt>M</tt> é igual a largura, em termos do número de lotes, do terreno relativo à plantação, <tt>1 ≤ M ≤ 100</tt>.</li>
+		</ul>
+  </li> 
+	<li> As linhas seguintes, com exceção da última, referem-se ao projeto de irrigação da plantação. Cada linha é composta por três números inteiros positivos <tt>i</tt>, <tt>j</tt> e <tt>A</tt> tais que:
+		<ul>
+			<li><tt>(i, j)</tt> indica o lote em que um dos irrigadores foi posicionado, <tt>1 ≤ i ≤ 100</tt> e <tt>1 ≤ j ≤ 100;</tt></li>
+      <li><tt>A</tt> especifica a área de alcance desse irrigador, <tt>1 ≤ A ≤ 2601.</tt></li>
+			<li><b>Observações:</b> 
+				<ul>
+					<li> um projeto de irrigação sempre possui, pelo menos, um irrigador;
+					</li><li> a área de um irrigador é sempre igual ao quadrado de um número ímpar;</li>
+					<li> um irrigador pode ser posicionado de tal modo a irrigar lotes fora do terreno relativo à plantação.</li>
+				</ul>
+			</li>
+		</ul>	
+	</li>
+  <li> A última linha é composta por três números 0, que indicam o fim da entrada.</li>
+  <li> A leitura deverá ser feita a partir da entrada padrão.</li>
+</ul>
+
+<b>Saída</b>
+<ul>
+	<li>Caso o projeto de irrigação seja efetivo, o programa deverá escrever uma linha na saída padrão contendo a frase "Projeto efetivo.";</li>
+	<li>Caso o projeto de irrigação não seja efetivo, o programa deverá escrever um número variável de linhas na saída padrão.
+  	<ul>
+			<li>Caso sejam detectados lotes subirrigados, tais lotes devem ser listados em ordem crescente, um por linha, de tal forma que, para cada lote subirrigado <tt>(i, j)</tt>, deverá ser escrita a seguinte linha na saída padrão "Sub: <tt>(i, j)</tt>";</li>
+  		<li>Caso sejam detectados lotes superirrigados, tais lotes devem ser listados (após a listagem dos lotes subirrigados, se for o caso) em ordem crescente, um por linha, de tal forma que, para cada lote superirrigado <tt>(i, j)</tt>, deverá ser escrita a seguinte linha na  saída padrão "Super: <tt>(i, j)</tt>";</li>
+			<li>Um lote <tt>(i, j)</tt> é considerado menor do que um lote <tt>(k, l)</tt> se <tt>i &lt; k</tt> ou se <tt>i = k</tt> e <tt>j &lt; l</tt>.</li>
+		</ul>
+  </li>
+</ul>
+
+<b>Exemplos</b><br><br>
+<table cellpadding="2" cellspacing="2" border="1">
+<tbody><tr align="center"><td width="15px">#</td><td width="200px"><i>Entrada</i></td><td width="300px"><i>Saída</i></td></tr>
+<tr align="center"><td width="15px">1</td><td width="200px">3 3<br>2 2 9<br>0 0 0</td><td width="300px">Projeto efetivo.</td></tr>
+<tr align="center"><td width="15px">2</td><td width="200px">3 4<br>2 2 9<br>0 0 0</td><td width="300px">Sub: (1, 4)<br>Sub: (2, 4)<br>Sub: (3, 4)</td></tr>
+<tr align="center"><td width="15px">3</td><td width="200px">4 3<br>2 2 9<br>3 2 9<br>0 0 0</td><td width="300px">Super: (2, 1)<br>Super: (2, 2)<br>Super: (2, 3)<br>Super: (3, 1)<br>Super: (3, 2)<br>Super: (3, 3)</td></tr>
+<tr align="center"><td width="15px">4</td><td width="200px">3 3<br>1 1 9<br>3 3 9<br>0 0 0</td><td width="300px">Sub: (1, 3)<br>Sub: (3, 1)<br>Super: (2, 2)</td></tr>
+</tbody></table>
+<br>
+
+<hr><small><i>27/03/2013</i></small>
+
+
+</body></html>

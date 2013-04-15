@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0054)https://susy.ic.unicamp.br:9999/mc102qr/05a/enunc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Laboratório 05a</title>
+  <style type="text/css"></style></head>
+  <body style=" background-color: white;">
+    <h3>Instituto de Computação da UNICAMP</h3>
+    <h3>Disciplina MC102QR: Algoritmos e Programação de Computadores</h3>
+    <h3>Laboratório Nº 05a - O Enigma da Esfinge</h3>
+    <h3>Prazo de entrega: 08/04/2013 às 23h59min59s</h3>
+    <h3>Peso: 2</h3>
+    <table cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td><i>Docente:</i></td>
+          <td><i>Zanoni Dias</i></td>
+        </tr>
+        <tr>
+          <td><i>Monitores:</i></td>
+          <td><i>Gustavo Rodrigues Galvão</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Carla Negri Lintzmayer</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Thiago da Silva Arruda</i></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><i>Gustavo Ciotto Pinton</i></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr><br>
+    Alguma criatura sobrenatural estava assassinando deliberadamente e
+    cruelmente pessoas que aparentemente não possuíam nenhuma conexão. Você, um
+    caçador novato e sem muita experiência, ligou urgentemente para Sam e Dean
+    Winchester pedindo por ajuda. De posse dos documentos dos Homens das Letras,
+    Sam facilmente descobriu que você está lidando com a Esfinge, um demônio
+    grego que traz destruição e má sorte, além de matar suas vítimas
+    estranguladas por elas não conseguirem decifrar seu enigma. Sam e Dean vão
+    rapidamente ao seu encontro para te ajudar com esse caso, afinal a Esfinge é
+    uma criatura muito poderosa.<br>
+    <br>
+    Vocês finalmente encontram a Esfinge, que mostra sua verdadeira face a vocês
+    (uma mulher com as patas, garras e peitos de um leão, uma cauda de serpente
+    e asas de águia).<br>
+    <br>
+    — "Decifra-me ou devoro-te", disse calmamente a Esfinge.<br>
+    <br>
+    Percebendo que nada mais poderia ser feito além de tentar decifrar o enigma,
+    vocês ouvem-na atentamente.<br>
+    <br>
+    — "Uma sequência de <span style="font-family: monospace;">n</span> números
+    é chamada Sequência da Esfinge se os valores absolutos das diferenças entre
+    elementos consecutivos assumem todos os valores entre <span style="font-family: monospace;">1</span> e <span style="font-family:
+      monospace;">n-1</span>. Eu vou lhes passar várias sequências de números e
+    vocês devem me dizer se cada uma delas é ou não uma Sequência da Esfinge.
+    Quando uma sequência não for, vocês devem me dar um motivo para que eu tenha
+    certeza que não foi por sorte", a Esfinge esbravejou.<br>
+    — "O quê? Mas e aquela história dos quatro pés, dois pés e três pés?", disse
+    Dean para a Esfinge. "Aquela eu sabia responder", ele cochichou.<br>
+    — "Por favor, querido, esse é o século 21, as coisas mudam".<br>
+    <br>
+    Mas o que a Esfinge não sabe é que você, além de caçador, é um programador
+    extremamente habilidoso que coincidentemente estava com seu notebook no
+    momento. Sam, sabendo disso, pediu para que você escrevesse um programa que,
+    dado o Enigma da Esfinge, resolva-o.<br>
+    <br>
+    — "O que é isso? Eu não disse que vocês poderiam usar uma máquina para
+    resolver o problema!", disse a Esfinge nervosa.<br>
+    — "Mas também não disse que não poderíamos. E como você disse, esse é o
+    século 21".<br>
+    <br>
+    <br>
+    <br>
+    <b>Entrada</b>
+    <ul>
+      <li>Seu programa deve ler várias linhas, cada uma contendo uma sequência
+        de números a serem testados.</li>
+      <li>Cada linha fornece um número <span style="font-family: monospace;">N</span><sub><span style="font-family: monospace;">i</span></sub>, <span style="font-family: monospace;">1 &lt; N<sub>i</sub> ≤ 1000</span>,
+        seguido pelos <span style="font-family: monospace;">N<sub>i</sub></span>
+        números inteiros da <span style="font-family: monospace;">i</span>-ésima
+
+
+
+
+
+
+
+
+
+        sequência<span style="font-family: monospace;"></span><span style="font-family: monospace;"></span>, todos separados por espaços.</li>
+      <li>Uma linha contendo apenas o número zero indica o fim da leitura, que
+        deve ser feita a partir da entrada padrão.</li>
+    </ul>
+    <br>
+    <ul>
+    </ul>
+    <b>Saída</b>
+    <ul>
+      <li>Seu programa deve escrever uma única linha na saída padrão:</li>
+      <ul>
+        <li>Imprima <span style="font-family: monospace;">"Sequence i is a </span><span style="font-family: monospace;"><span id="result_box" class="short_text" lang="en"><span class="hps">Sphinx</span></span>'s
+
+
+
+
+
+
+
+
+
+            Sequence!"</span> se a sequência <span style="font-family:
+            monospace;">i</span> for uma Sequência da Esfinge<span style="font-family: monospace;">, i ≥ 1</span>. </li>
+        <li>Caso contrário, imprima <span style="font-family: monospace;">"Sequence
+
+
+
+
+            i is not a </span><span style="font-family: monospace;"><span style="font-family: monospace;"><span id="result_box" class="short_text" lang="en"><span class="hps">Sphinx</span></span>'s
+
+
+
+
+              Sequence</span>, because of elements a (value A) and b (value B)."</span>,
+          onde:</li>
+        <ul>
+          <li><span style="font-family: monospace;">i</span> é o número da
+            sequência, <span style="font-family: monospace;">i ≥ </span><span style="font-family: monospace;">1</span></li>
+          <li><span style="font-family: monospace;">a</span> e <span style="font-family: monospace;">b</span> são os índices dos
+            primeiros dois números da sequência que impedem que a condição seja
+            satisfeita, <span style="font-family: monospace;">1 ≤ a &lt; b ≤ N</span></li>
+          <li><span style="font-family: monospace;"></span><span style="font-family: monospace;">A</span> e <span style="font-family: monospace;">B</span> são os valores contidos
+            nos índices <span style="font-family: monospace;">a</span> e <span style="font-family: monospace;">b</span>, respectivamente. </li>
+        </ul>
+        <ul>
+          <li>Note que sempre <span style="font-family: monospace;">a = b - 1</span>.</li>
+        </ul>
+      </ul>
+    </ul>
+    <p><span style="font-weight: bold;"><br>
+      </span></p>
+    <p><span style="font-weight: bold;">Exemplos</span></p>
+    <table border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;">#</td>
+          <td style="vertical-align: top;"><em>Entrada</em></td>
+          <td style="vertical-align: top;"><em>Saída</em></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">1</td>
+          <td style="vertical-align: top;"><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family:
+              monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;"></span><span style="font-family:
+              monospace;"></span><span style="font-family: monospace;"></span><span style="font-family: monospace;">4 1 4 2 3<br>
+              5 1 4 2 -1 6<br>
+              3 4 2 1<br>
+              5 1 4 2 3 5<br>
+              7 7 1 4 2 -3 -3 5<br>
+              3 1 2 4<br>
+              6 8 3 -3 9 6 3<br>
+              3 104 102 101<br>
+              3 -5 -7 -6<br>
+              10 3 6 5 9 14 2 8 1 -6 -3<br>
+              4 2 3 5 2<br>
+              0<br>
+            </span></td>
+          <td style="vertical-align: top;"><span style="font-family: monospace;">Sequence
+
+
+              1 is a Sphinx's Sequence!<br>
+              Sequence 2 is not a Sphinx's Sequence because of elements 3 (value
+              2) and 4 (value -1).<br>
+              Sequence 3 is a Sphinx's Sequence!<br>
+              Sequence 4 is not a Sphinx's Sequence because of elements 4 (value
+              3) and 5 (value 5).<br>
+              Sequence 5 is not a Sphinx's Sequence because of elements 5 (value
+              -3) and 6 (value -3).<br>
+              Sequence 6 is a Sphinx's Sequence!<br>
+              Sequence 7 is not a Sphinx's Sequence because of elements 2 (value
+              3) and 3 (value -3).<br>
+              Sequence 8 is a Sphinx's Sequence!<br>
+              Sequence 9 is a Sphinx's Sequence!<br>
+              Sequence 10 is not a Sphinx's Sequence because of elements 5
+              (value 14) and 6 (value 2).<br>
+              Sequence 11 is a Sphinx's Sequence!<br>
+              <br>
+            </span></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <hr><small><i>08/04/2013</i></small>
+  
+
+</body></html>
