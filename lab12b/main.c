@@ -49,20 +49,25 @@ int main(int argc, char *argv[]) {
 
     strcpy(nomearqin, argv[1]);
     strcpy(nomearqout, argv[2]);
-
+    
 	fscanf(fEntrada, "%d %d %d", &qtdeCartaMe, &qtdeCartaJose, &vezDeJogar);
+	printf("\n ------------------------------------------------------------- \n");
 	for(i = 0; i < qtdeCartaMe; i++){
-		fscanf(fEntrada, "%s %d %d %d %d %d %d %d %d", Me[i].nome, &Me[i].MaxClockSpeed, &Me[i].MaxBusSpeed, &Me[i].IntroductionYear, &Me[i].TransistorCount, &Me[i].DataWidth, &Me[i].ManufacturingProcess, &Me[i].DieSize, &Me[i].MaxTDP);
+		fscanf(fEntrada, "%s %d %d %d %d %d %d %d %d", Me[i].nome, &(Me[i]).MaxClockSpeed, &(Me[i]).MaxBusSpeed, &(Me[i]).IntroductionYear, &(Me[i]).TransistorCount, &(Me[i]).DataWidth, &(Me[i]).ManufacturingProcess, &(Me[i]).DieSize, &(Me[i]).MaxTDP);
+		printf("%s %d %d %d %d %d %d %d %d\n", Me[i].nome, Me[i].MaxClockSpeed, Me[i].MaxBusSpeed, Me[i].IntroductionYear, Me[i].TransistorCount, Me[i].DataWidth, Me[i].ManufacturingProcess, Me[i].DieSize, Me[i].MaxTDP);
 	}
+	printf("\n ------------------------------------------------------------- \n");
 	for(i = 0; i < qtdeCartaJose; i++){
 		fscanf(fEntrada, "%s %d %d %d %d %d %d %d %d", Jose[i].nome, &Jose[i].MaxClockSpeed, &Jose[i].MaxBusSpeed, &Jose[i].IntroductionYear, &Jose[i].TransistorCount, &Jose[i].DataWidth, &Jose[i].ManufacturingProcess, &Jose[i].DieSize, &Jose[i].MaxTDP);
+		//printf("%s %d %d %d %d %d %d %d %d\n", Jose[i].nome, Jose[i].MaxClockSpeed, Jose[i].MaxBusSpeed, Jose[i].IntroductionYear, Jose[i].TransistorCount, Jose[i].DataWidth, Jose[i].ManufacturingProcess, Jose[i].DieSize, Jose[i].MaxTDP);
 	}
 
 	scanf("%d", &rodadasJogadas);
 	for(i = 0; i < rodadasJogadas; i++){
-
+		printf("\n ------------------------------------------------------------- \n");
 		scanf("%d", &caracteristica);
-
+		//printf("%s %d %d %d %d %d %d %d %d\n", Me[0].nome, Me[0].MaxClockSpeed, Me[0].MaxBusSpeed, Me[0].IntroductionYear, Me[0].TransistorCount, Me[0].DataWidth, Me[0].ManufacturingProcess, Me[0].DieSize, Me[0].MaxTDP);
+		//printf("%s %d %d %d %d %d %d %d %d\n", Jose[0].nome, Jose[0].MaxClockSpeed, Jose[0].MaxBusSpeed, Jose[0].IntroductionYear, Jose[0].TransistorCount, Jose[0].DataWidth, Jose[0].ManufacturingProcess, Jose[0].DieSize, Jose[0].MaxTDP);
 		switch(caracteristica){
 
 			case 1:
@@ -108,6 +113,7 @@ int main(int argc, char *argv[]) {
 
 		}
 
+		printf("%d\n", ganhador);
 		if(ganhador == 1) {
 
 			Me[qtdeCartaMe] = Me[0];
@@ -123,7 +129,7 @@ int main(int argc, char *argv[]) {
 			qtdeCartaJose++;
 
 		}
-	
+
 		subirCartas(&Me, qtdeCartaMe);
 		subirCartas(&Jose, qtdeCartaJose);
 
@@ -135,14 +141,19 @@ int main(int argc, char *argv[]) {
 		else
 			vezDeJogar = 1;
 	}
-	
+
+	printf("\n ------------------------------------------------------------- \n");
 	fprintf(fSaida, "%d %d %d\n", qtdeCartaMe, qtdeCartaJose, vezDeJogar);
+	//printf("%d %d %d\n", qtdeCartaMe, qtdeCartaJose, vezDeJogar);
 	for(i = 0; i < qtdeCartaMe; i++){
 		fprintf(fSaida, "%s %d %d %d %d %d %d %d %d\n", Me[i].nome, Me[i].MaxClockSpeed, Me[i].MaxBusSpeed, Me[i].IntroductionYear, Me[i].TransistorCount, Me[i].DataWidth, Me[i].ManufacturingProcess, Me[i].DieSize, Me[i].MaxTDP);
+		//printf("%s %d %d %d %d %d %d %d %d\n", Me[i].nome, Me[i].MaxClockSpeed, Me[i].MaxBusSpeed, Me[i].IntroductionYear, Me[i].TransistorCount, Me[i].DataWidth, Me[i].ManufacturingProcess, Me[i].DieSize, Me[i].MaxTDP);
 	}
 	for(i = 0; i < qtdeCartaJose; i++){
 		fprintf(fSaida, "%s %d %d %d %d %d %d %d %d\n", Jose[i].nome, Jose[i].MaxClockSpeed, Jose[i].MaxBusSpeed, Jose[i].IntroductionYear, Jose[i].TransistorCount, Jose[i].DataWidth, Jose[i].ManufacturingProcess, Jose[i].DieSize, Jose[i].MaxTDP);
+		//printf("%s %d %d %d %d %d %d %d %d\n", Jose[i].nome, Jose[i].MaxClockSpeed, Jose[i].MaxBusSpeed, Jose[i].IntroductionYear, Jose[i].TransistorCount, Jose[i].DataWidth, Jose[i].ManufacturingProcess, Jose[i].DieSize, Jose[i].MaxTDP);
 	}
 
+	return 0;
 
 }
