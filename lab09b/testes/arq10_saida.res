@@ -1,0 +1,1 @@
+No tempo 50 vai haver mais do que 5 eventos ao mesmo tempo. Recuse clientes.
