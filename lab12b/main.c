@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 	printf("\n ------------------------------------------------------------- \n");
 	printf("%d %d %d\n", qtdeCartaMe, qtdeCartaJose, vezDeJogar);
 	for(i = 0; i < qtdeCartaMe; i++){
-		fscanf(fEntrada, "%s %d %d %d %d %d %d %d %d", Me[i].nome, &(Me[i]).MaxClockSpeed, &(Me[i]).MaxBusSpeed, &(Me[i]).IntroductionYear, &(Me[i]).TransistorCount, &(Me[i]).DataWidth, &(Me[i]).ManufacturingProcess, &(Me[i]).DieSize, &(Me[i]).MaxTDP);
+		//fscanf(fEntrada, "%s %d %d %d %d %d %d %d %d", Me[i].nome, &(Me[i]).MaxClockSpeed, &(Me[i]).MaxBusSpeed, &(Me[i]).IntroductionYear, &(Me[i]).TransistorCount, &(Me[i]).DataWidth, &(Me[i]).ManufacturingProcess, &(Me[i]).DieSize, &(Me[i]).MaxTDP);
 		//printf("%s %d %d %d %d %d %d %d %d\n", Me[i].nome, Me[i].MaxClockSpeed, Me[i].MaxBusSpeed, Me[i].IntroductionYear, Me[i].TransistorCount, Me[i].DataWidth, Me[i].ManufacturingProcess, Me[i].DieSize, Me[i].MaxTDP);
 	}
 /*	printf("\n ------------------------------------------------------------- \n");
