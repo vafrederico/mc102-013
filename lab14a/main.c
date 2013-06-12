@@ -52,7 +52,7 @@ int testaExpressao(int numeros[], int qtdeNumeros, int qtdePosicoesUsadas, int (
 
 	}
 
-	return resultadoCerto; // retorna a quantidade de expressões achadas
+	return resultadoCerto; // retorna a quantidade de expressões achadas 
 
 }
 
