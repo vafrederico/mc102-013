@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Verifica se o int numero está no vetor numeros, retorna 1 caso verdadeiro
+// Verifica se o int numero esta no vetor numeros, retorna 1 caso verdadeiro
 int numeroNoVetor(int numeros[], int qtdeNumeros, int numero){
 
 	int i;
@@ -24,26 +24,26 @@ int testaExpressao(int numeros[], int qtdeNumeros, int qtdePosicoesUsadas, int (
 
 	int i, resultadoCerto = 0;
 	
-	if(qtdeNumeros == qtdePosicoesUsadas){ // Já testou todos os números
+	if(qtdeNumeros == qtdePosicoesUsadas){ // Ja testou todos os numeros
 
-		if(resultadoAtual == resultadoDesejado) // é o resultado? se sim, retorna 1, se não 0
+		if(resultadoAtual == resultadoDesejado) // eh o resultado? se sim, retorna 1, se nao 0
 			return 1;
 		else
 			return 0;
 
-	} else { // ainda tem números pra testar
+	} else { // ainda tem numeros pra testar
 
 		for(i = 0; i < qtdeNumeros; i++){
 
-			if(!numeroNoVetor(*posicoesUsadas, qtdePosicoesUsadas, i)){ // já usamos o número que está na posição i do vetor números? se não, usamos ele
+			if(!numeroNoVetor(*posicoesUsadas, qtdePosicoesUsadas, i)){ // ja usamos o numero que esta na posiçao i do vetor numeros? se nao, usamos ele
 
-				(*posicoesUsadas)[qtdePosicoesUsadas] = i; // marcamos a posição i como usada
+				(*posicoesUsadas)[qtdePosicoesUsadas] = i; // marcamos a posicao i como usada
 
-				// roda novamente com com o número usado, somando a quantidade de expressões certas achadas
+				// roda novamente com com o numero usado, somando a quantidade de expressões certas achadas
 				resultadoCerto += testaExpressao(numeros, qtdeNumeros, qtdePosicoesUsadas + 1, posicoesUsadas, resultadoAtual + numeros[i], resultadoDesejado);
 				resultadoCerto += testaExpressao(numeros, qtdeNumeros, qtdePosicoesUsadas + 1, posicoesUsadas, resultadoAtual - numeros[i], resultadoDesejado);
 				resultadoCerto += testaExpressao(numeros, qtdeNumeros, qtdePosicoesUsadas + 1, posicoesUsadas, resultadoAtual * numeros[i], resultadoDesejado);
-				if(numeros[i] != 0) // não dá para dividir por 0
+				if(numeros[i] != 0) // nao da para dividir por 0
 					resultadoCerto += testaExpressao(numeros, qtdeNumeros, qtdePosicoesUsadas + 1, posicoesUsadas, resultadoAtual / numeros[i], resultadoDesejado);
 
 			}
@@ -52,7 +52,7 @@ int testaExpressao(int numeros[], int qtdeNumeros, int qtdePosicoesUsadas, int (
 
 	}
 
-	return resultadoCerto; // retorna a quantidade de expressões achadas 
+	return resultadoCerto; // retorna a quantidade de expressoes achadas 
 
 }
 
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 
 	for(i = 0; i < qtdeNumeros; i++){
 		
-		// para cada número, começa a testar tendo ele como primeiro número usado e soma a quantidade de expressões certas
+		// para cada numero, comeca a testar tendo ele como primeiro numero usado e soma a quantidade de expressoes certas
 		posicoesUsadas[0] = i;
 		qtdeResultados += testaExpressao(numeros, qtdeNumeros, 1, &posicoesUsadas, numeros[i], resultadoAvaliacao);
 
