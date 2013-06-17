@@ -1,6 +1,6 @@
-/*	Seu nome
-	RA: Seu RA
-	Turma: Sua turma
+/*	Gustavo Torrente Goncalves
+	RA: 146375
+	Turma: Q
 	Lab 14b
 */
 
@@ -8,7 +8,6 @@
 
 void testaCaminho(char (*mapa)[100][100], int posX, int posY, int tamX, int tamY, int (*tesouros)[26]){
 
-	int i, j;
 	char atual;
 	
 	/* está dentro do vetor? */
@@ -25,7 +24,9 @@ void testaCaminho(char (*mapa)[100][100], int posX, int posY, int tamX, int tamY
 		(*tesouros)[atual - 'a'] = 1;
 
 	} else if(atual >= '1' && atual <= '9'){
-
+		
+		int i, j;
+		
 		/* se estivermos em um portal, procura a saida do portal e procura-se tesouros a partir da saida */
 		for(i = 0; i < tamY; i++)
 			for(j = 0; j < tamX; j++)
@@ -35,30 +36,17 @@ void testaCaminho(char (*mapa)[100][100], int posX, int posY, int tamX, int tamY
 	}
 
 	/* procura nos quatro lados se encontra algo que não seja uma parede, se achar, procura-se tesouros a partir desse lugar */
-
-	if((*mapa)[posY + 1][posX] != '#'){
-
+	if((*mapa)[posY + 1][posX] != '#')
 		testaCaminho(mapa, posX, posY + 1, tamX, tamY, tesouros);
 
-	}
-
-	if((*mapa)[posY - 1][posX] != '#'){
-
+	if((*mapa)[posY - 1][posX] != '#')
 		testaCaminho(mapa, posX, posY - 1, tamX, tamY, tesouros);
 
-	}
-
-	if((*mapa)[posY][posX + 1] != '#'){
-		
+	if((*mapa)[posY][posX + 1] != '#')		
 		testaCaminho(mapa, posX + 1, posY, tamX, tamY, tesouros);
 
-	}
-
-	if((*mapa)[posY][posX - 1] != '#'){
-		
+	if((*mapa)[posY][posX - 1] != '#')		
 		testaCaminho(mapa, posX - 1, posY, tamX, tamY, tesouros);
-
-	}
 
 }
 
@@ -106,6 +94,7 @@ int main(){
 	if(!achouTesouro)
 		printf("no treasures");
 
+	printf("\n");
 	return 0;
 	
 }
